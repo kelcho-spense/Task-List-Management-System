@@ -9,9 +9,10 @@ POST http://localhost:8000/users
 Content-Type: application/json
 
 {
-  "fullname": "Jane Doez",
-  "email": "jane@gmailz.com",
-  "role": "Inern"
+  "id" : 23,
+  "name": "",
+  "email": "kevin.com",
+  "role": "INTERN"
 }
 
 ###

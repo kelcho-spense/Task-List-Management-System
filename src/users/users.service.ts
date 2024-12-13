@@ -1,9 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserDto, UpdateUserDto } from './dto/create-user.dto';
 
 @Injectable()
 export class UsersService {
-  private users = [
+  private users: CreateUserDto[] = [
     { id: 1, name: 'John Doe', email: 'johndoe1@gmail.com', role: 'ADMIN' },
     {
       id: 2,
@@ -123,15 +123,12 @@ export class UsersService {
     }
     return this.users;
   }
-  
+
   findOne(id: number) {
     const user = this.users.find((user) => user.id === id);
-    if (!user) {
-      return 'User not found';
-    }
-    return user;
+    if (!user) throw new NotFoundException('User not found');
+    return user as CreateUserDto;
   }
-
 
   create(createUserDto: CreateUserDto) {
     const lastUserId = this.users[this.users.length - 1].id;
@@ -142,18 +139,17 @@ export class UsersService {
 
   update(id: number, updateUserDto: UpdateUserDto) {
     const userIndex = this.users.findIndex((user) => user.id === id);
-    if (userIndex === -1) {
-      return 'User not found';
-    }
-    this.users[userIndex] = { ...this.users[userIndex], ...updateUserDto };
+    if (userIndex === -1) throw new NotFoundException('User not found');
+    this.users[userIndex] = {
+      ...this.users[userIndex],
+      ...updateUserDto,
+    } as CreateUserDto;
     return this.users[userIndex];
   }
 
   delete(id: number) {
     const userIndex = this.users.findIndex((user) => user.id === id);
-    if (userIndex === -1) {
-      return 'User not found';
-    }
+    if (userIndex === -1) throw new NotFoundException('User not found');
     this.users.splice(userIndex, 1);
     return { id };
   }

@@ -2,6 +2,7 @@ import { PartialType } from '@nestjs/mapped-types';
 import { IsEmail, IsEnum, IsInt, IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateUserDto {
+  @IsNotEmpty()
   @IsInt()
   id: number;
 
@@ -9,7 +10,8 @@ export class CreateUserDto {
   @IsString()
   name: string;
 
-  @IsEmail()
+  @IsNotEmpty()
+  @IsEmail({}, { message: 'Invalid email' })
   email: string;
 
   @IsEnum(['INTERN', 'ENGINEER', 'ADMIN'], {
