@@ -1,7 +1,7 @@
 ### GET /api/healthcheck
 GET http://localhost:8000/
 ###
-GET http://localhost:8000/users
+GET http://localhost:8000/employees
 ###
 DELETE http://localhost:8000/users/"20"
 ###
@@ -30,4 +30,15 @@ GET http://localhost:8000/users/1000
 ###
 
 ###
-GET http://localhost:8000/users?role=admin&limit=2
+GET http://localhost:8000/users?role=kevin&limit=2
+
+
+###
+POST http://localhost:8000/employees
+Content-Type: application/json
+
+{
+  "name": "Jane comba",
+  "email": ".com",
+  "role": "INTERN"
+}

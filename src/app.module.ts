@@ -3,6 +3,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
+import { DatabaseModule } from './database/database.module';
+import { TasksModule } from './tasks/tasks.module';
+import { EmployeesModule } from './employees/employees.module';
 
 @Module({
   imports: [
@@ -11,6 +14,9 @@ import { UsersModule } from './users/users.module';
       envFilePath: '.env', // Load environment variables from .env file
     }),
     UsersModule,
+    DatabaseModule,
+    TasksModule,
+    EmployeesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

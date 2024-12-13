@@ -11,7 +11,7 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { CreateUserDto, UpdateUserDto } from './dto/create-user.dto';
+import { CreateUserDto, UpdateUserDto, rolesEnum } from './dto/create-user.dto';
 
 @Controller('users')
 export class UsersController {
@@ -19,7 +19,7 @@ export class UsersController {
 
   @Get() // GET /users or GET /users?limit=10&role=admin
   findAll(
-    @Query('role') role?: 'INTERN' | 'ENGINEER' | 'ADMIN',
+    @Query('role') role?: rolesEnum,
     @Query('limit') limit?: string,
   ): CreateUserDto[] {
     return this.usersService.findAll(role, limit);

@@ -100,6 +100,8 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
 ### Cheat Sheet commands
 
+- Create a resource ie User CRUD: `nest g resource <resource-name>` (ali
+
 - Create a new module: `nest g module <module-name>`
 - Create a new controller: `nest g controller <controller-name>`
 - Create a new service: `nest g service <service-name>`
@@ -111,3 +113,12 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 - Create a new interceptor: `nest g interceptor <interceptor-name>`
 - Create a new middleware: `nest g middleware <middleware-name>`
 - Create a new pipe: `nest g pipe <pipe-name>`
+
+### set up prisma
+- `pnpm add -D prisma @prisma/client`   // install prisma
+- `npx prisma init`  // create prisma folder
+- `npx prisma generate`  // generate prisma client
+- `npx prisma migrate dev --name <migration name>`  // create migration
+- `npx prisma studio`  // open prisma studio
+- `npx prisma db push `  // push migration to database
+

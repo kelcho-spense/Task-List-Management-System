@@ -1,6 +1,8 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { IsEmail, IsEnum, IsInt, IsNotEmpty, IsString } from 'class-validator';
 
+export type rolesEnum = 'INTERN' | 'ENGINEER' | 'ADMIN';
+
 export class CreateUserDto {
   @IsNotEmpty()
   @IsInt()
@@ -17,7 +19,7 @@ export class CreateUserDto {
   @IsEnum(['INTERN', 'ENGINEER', 'ADMIN'], {
     message: 'Invalid role. Must be one of: INTERN, ENGINEER, ADMIN',
   })
-  role: 'INTERN' | 'ENGINEER' | 'ADMIN';
+  role: rolesEnum;
 }
 
 export class UpdateUserDto extends PartialType(CreateUserDto) {}

@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateUserDto, UpdateUserDto } from './dto/create-user.dto';
+import { CreateUserDto, UpdateUserDto, rolesEnum } from './dto/create-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -111,7 +111,7 @@ export class UsersService {
     },
   ];
 
-  findAll(role?: 'INTERN' | 'ENGINEER' | 'ADMIN', limit?: string) {
+  findAll(role?: rolesEnum, limit?: string) {
     if (role && limit) {
       return this.users
         .filter((user) => user.role === role)
