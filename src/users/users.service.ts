@@ -122,8 +122,8 @@ export class UsersService {
     }
     return this.users;
   }
-  findOne(id: string) {
-    const user = this.users.find((user) => user.id === parseInt(id, 10));
+  findOne(id: number) {
+    const user = this.users.find((user) => user.id === id);
     return user ? user : 'User not found';
   }
   create(createUserDto: any) {
@@ -132,20 +132,16 @@ export class UsersService {
     this.users.push(createdUser);
     return createdUser;
   }
-  update(id: string, updateUserDto: any) {
-    const userIndex = this.users.findIndex(
-      (user) => user.id === parseInt(id, 10),
-    );
+  update(id: number, updateUserDto: any) {
+    const userIndex = this.users.findIndex((user) => user.id === id);
     if (userIndex === -1) {
       return 'User not found';
     }
     this.users[userIndex] = { ...this.users[userIndex], ...updateUserDto };
     return this.users[userIndex];
   }
-  delete(id: string) {
-    const userIndex = this.users.findIndex(
-      (user) => user.id === parseInt(id, 10),
-    );
+  delete(id: number) {
+    const userIndex = this.users.findIndex((user) => user.id === id);
     if (userIndex === -1) {
       return 'User not found';
     }

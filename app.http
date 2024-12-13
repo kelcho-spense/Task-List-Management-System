@@ -1,27 +1,27 @@
 ### GET /api/healthcheck
 GET http://localhost:8000/
 ###
-GET http://localhost:8000/api/users
+GET http://localhost:8000/users
 ###
-DELETE http://localhost:8000/users/e486307f-4b5b-475f-bc29-41d04b0e8c6a
+DELETE http://localhost:8000/users/21
 ###
 POST http://localhost:8000/users
 Content-Type: application/json
 
 {
-  "fullname": "Jane Doe",
-  "email": "jane@gmail.com",
-  "address": "Nyeri Kenya"
+  "fullname": "Jane Doez",
+  "email": "jane@gmailz.com",
+  "role": "Inern"
 }
 
 ###
-PATCH http://localhost:8000/users/100
+PATCH http://localhost:8000/users/20
 Content-Type: application/json
 
 {
-  "fullname": "Jane Doe",
-  "email": "jane@gmail.com",
-  "address": "Nyeri Kenya"
+  "name": "kelcho",
+  "email": "kelcho@gmail.com",
+  "role": "Admin"
 }
 
 ###
