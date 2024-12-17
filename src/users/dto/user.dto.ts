@@ -1,25 +1,24 @@
 import { PartialType } from '@nestjs/mapped-types';
-import { IsEmail, IsEnum, IsInt, IsNotEmpty, IsString } from 'class-validator';
-
-export type rolesEnum = 'INTERN' | 'ENGINEER' | 'ADMIN';
+import { IsEmail, IsEnum, IsNotEmpty, IsString } from 'class-validator';
+import { Role } from '@prisma/client';
 
 export class CreateUserDto {
   @IsNotEmpty()
-  @IsInt()
-  id: number;
-
-  @IsNotEmpty()
   @IsString()
-  name: string;
+  username: string;
 
   @IsNotEmpty()
   @IsEmail({}, { message: 'Invalid email' })
   email: string;
 
-  @IsEnum(['INTERN', 'ENGINEER', 'ADMIN'], {
+  @IsNotEmpty()
+  @IsString()
+  password_hash: string;
+
+  @IsEnum(Role, {
     message: 'Invalid role. Must be one of: INTERN, ENGINEER, ADMIN',
   })
-  role: rolesEnum;
+  role: Role;
 }
 
 export class UpdateUserDto extends PartialType(CreateUserDto) {}

@@ -1,27 +1,27 @@
 ### Health Check
-GET http://localhost:3000/api/v1/health
+GET http://localhost:8000/api/v1/health
 
 ### Users CRUD Operations ###
 
 ### Create User
-POST http://localhost:3000/api/v1/users
+POST http://localhost:8000/api/v1/users
 Content-Type: application/json
 
 {
-  "username": "johndoe",
-  "email": "john@example.com",
-  "password": "secretpass123",
-  "role": "NORMAL"
+  "username": "Freshiadoe",
+  "email": "Freshia@example.com",
+  "password_hash": "secretpass123",
+  "role": "ADMIN"
 }
 
 ### Get All Users
-GET http://localhost:3000/api/v1/users
+GET http://localhost:8000/api/v1/users
 
 ### Get User by ID
-GET http://localhost:3000/api/v1/users/1
+GET http://localhost:8000/api/v1/users/1
 
 ### Update User
-PATCH http://localhost:3000/api/v1/users/1
+PATCH http://localhost:8000/api/v1/users/1
 Content-Type: application/json
 
 {
@@ -30,27 +30,28 @@ Content-Type: application/json
 }
 
 ### Delete User
-DELETE http://localhost:3000/api/v1/users/1
+DELETE http://localhost:8000/api/v1/users/1
 
 ### Lists CRUD Operations ###
 
 ### Create List
-POST http://localhost:3000/api/v1/lists
+POST http://localhost:8000/api/v1/lists
 Content-Type: application/json
 
 {
-  "user_id": 1,
-  "name": "Shopping List"
+  "user_id": 5,
+  "name": " Freshiadoe Urgent List",
+  "category_id": 3
 }
 
 ### Get All Lists
-GET http://localhost:3000/api/v1/lists
+GET http://localhost:8000/api/v1/lists
 
 ### Get List by ID
-GET http://localhost:3000/api/v1/lists/1
+GET http://localhost:8000/api/v1/lists/1
 
 ### Update List
-PATCH http://localhost:3000/api/v1/lists/1
+PATCH http://localhost:8000/api/v1/lists/1
 Content-Type: application/json
 
 {
@@ -58,7 +59,7 @@ Content-Type: application/json
 }
 
 ### Delete List
-DELETE http://localhost:3000/api/v1/lists/1
+DELETE http://localhost:8000/api/v1/lists/1
 
 ### Categories CRUD Operations ###
 
@@ -67,7 +68,7 @@ POST http://localhost:8000/api/v1/categories
 Content-Type: application/json
 
 {
-  "name": "Work"
+  "name": "Urgent"
 }
 
 ### Get All Categories

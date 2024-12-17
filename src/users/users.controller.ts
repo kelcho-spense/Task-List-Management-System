@@ -11,7 +11,8 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { CreateUserDto, UpdateUserDto, rolesEnum } from './dto/create-user.dto';
+import { CreateUserDto, UpdateUserDto } from './dto/user.dto';
+import { Role, User } from '@prisma/client';
 
 @Controller('users')
 export class UsersController {
@@ -19,19 +20,19 @@ export class UsersController {
 
   @Get() // GET /users or GET /users?limit=10&role=admin
   findAll(
-    @Query('role') role?: rolesEnum,
-    @Query('limit') limit?: string,
-  ): CreateUserDto[] {
+    @Query('role') role?: Role,
+    @Query('limit', ParseIntPipe) limit?: number,
+  ): Promise<User[]> {
     return this.usersService.findAll(role, limit);
   }
 
   @Get(':id') // GET /users/:id
-  findOne(@Param('id', ParseIntPipe) id: number): CreateUserDto | string {
+  findOne(@Param('id', ParseIntPipe) id: number): Promise<User> | string {
     return this.usersService.findOne(id);
   }
 
   @Post() // POST /users
-  create(@Body(ValidationPipe) createUserDto: CreateUserDto): CreateUserDto {
+  create(@Body(ValidationPipe) createUserDto: CreateUserDto): Promise<User> {
     return this.usersService.create(createUserDto);
   }
 
@@ -39,12 +40,12 @@ export class UsersController {
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body(ValidationPipe) updateUserDto: UpdateUserDto,
-  ): UpdateUserDto {
+  ): Promise<User> {
     return this.usersService.update(id, updateUserDto);
   }
 
   @Delete(':id') // DELETE /users/:id
-  remove(@Param('id', ParseIntPipe) id: number) {
+  remove(@Param('id', ParseIntPipe) id: number): Promise<User> {
     return this.usersService.delete(id);
   }
 }

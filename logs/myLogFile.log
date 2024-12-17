@@ -102,3 +102,31 @@ E:\PersonalProjects\nestjs\Task-list-MS\src\categories\categories.service.ts:31:
   30 async update(id: number, updateCategoryData: UpdateCategoryDto) {
 → 31   return this.databaseService.categories.update(
 An operation failed because it depends on one or more records that were required but not found. Record to update not found.
+12/17/24, 4:32 PM - IP: unknown - [AllExceptionsFilter] {"message":["Invalid role. Must be one of: INTERN, ENGINEER, ADMIN"],"error":"Bad Request","statusCode":400}
+12/17/24, 4:32 PM - IP: unknown - [AllExceptionsFilter] {"message":["password_hash must be a string","password_hash should not be empty","Invalid role. Must be one of: INTERN, ENGINEER, ADMIN"],"error":"Bad Request","statusCode":400}
+12/17/24, 4:33 PM - IP: unknown - [AllExceptionsFilter]  Invalid `this.databaseService.user.create()` invocation in E:\PersonalProjects\nestjs\Task-list-MS\src\users\users.service.ts:35:38    32 }   33    34 async create(createUserData: CreateUserDto): Promise<User> { → 35   return this.databaseService.user.create({          data: {            username: "johndoe",            email: "john@example.com",            password_hash: "secretpass123",            role: "INTERN"                  ~~~~~~~~          }        })  Invalid value for argument `role`. Expected Role.
+12/17/24, 4:35 PM - IP: unknown - [AllExceptionsFilter]  Invalid `this.databaseService.user.create()` invocation in E:\PersonalProjects\nestjs\Task-list-MS\src\users\users.service.ts:35:38    32 }   33    34 async create(createUserData: CreateUserDto): Promise<User> { → 35   return this.databaseService.user.create({          data: {            username: "johndoe",            email: "john@example.com",            password_hash: "secretpass123",            role: "INTERN"                  ~~~~~~~~          }        })  Invalid value for argument `role`. Expected Role.
+12/17/24, 4:38 PM - IP: unknown - [AllExceptionsFilter] {"message":["Invalid role. Must be one of: INTERN, ENGINEER, ADMIN"],"error":"Bad Request","statusCode":400}
+12/17/24, 6:04 PM - IP: unknown - [AllExceptionsFilter] {"message":["Invalid role. Must be one of: INTERN, ENGINEER, ADMIN"],"error":"Bad Request","statusCode":400}
+12/17/24, 6:05 PM - IP: unknown - [AllExceptionsFilter] {"message":["Invalid role. Must be one of: INTERN, ENGINEER, ADMIN"],"error":"Bad Request","statusCode":400}
+12/17/24, 6:05 PM - IP: unknown - [AllExceptionsFilter] {"message":["Invalid role. Must be one of: INTERN, ENGINEER, ADMIN"],"error":"Bad Request","statusCode":400}
+12/17/24, 6:06 PM - IP: unknown - [AllExceptionsFilter]  Invalid `this.databaseService.user.create()` invocation in E:\PersonalProjects\nestjs\Task-list-MS\src\users\users.service.ts:35:38    32 }   33    34 async create(createUserData: CreateUserDto): Promise<User> { → 35   return this.databaseService.user.create({          data: {            username: "Kevindoe",            email: "Kevin@example.com",            password_hash: "secretpass123",            role: "INTERN"                  ~~~~~~~~          }        })  Invalid value for argument `role`. Expected Role.
+12/17/24, 6:06 PM - IP: unknown - [AllExceptionsFilter]  Invalid `this.databaseService.user.create()` invocation in E:\PersonalProjects\nestjs\Task-list-MS\src\users\users.service.ts:35:38    32 }   33    34 async create(createUserData: CreateUserDto): Promise<User> { → 35   return this.databaseService.user.create({          data: {            username: "Kevindoe",            email: "Kevin@example.com",            password_hash: "secretpass123",            role: "INTERN"                  ~~~~~~~~          }        })  Invalid value for argument `role`. Expected Role.
+12/17/24, 6:11 PM - IP: unknown - [AllExceptionsFilter] 
+Invalid `this.databaseService.user.create()` invocation in
+E:\PersonalProjects\nestjs\Task-list-MS\src\users\users.service.ts:35:38
+
+  32 }
+  33 
+  34 async create(createUserData: CreateUserDto): Promise<User> {
+→ 35   return this.databaseService.user.create(
+Unique constraint failed on the fields: (`email`)
+12/17/24, 6:31 PM - IP: unknown - [AllExceptionsFilter] 
+Invalid `this.databaseService.lists.create()` invocation in
+E:\PersonalProjects\nestjs\Task-list-MS\src\lists\lists.service.ts:11:39
+
+   8 constructor(private readonly databaseService: DatabaseService) {}
+   9 
+  10 async create(createListData: CreateListDto): Promise<Lists> {
+→ 11   return this.databaseService.lists.create(
+Foreign key constraint violated: `Lists_category_id_fkey (index)`

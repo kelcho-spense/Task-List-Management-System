@@ -16,12 +16,18 @@ datasource db {
 enum Role {
   ADMIN
   NORMAL
+  INTERN
 }
 
 enum Priority {
   LOW
   MEDIUM
   HIGH
+}
+
+enum Completed {
+  NO
+  YES
 }
 
 model User {
@@ -40,6 +46,8 @@ model Lists {
   user_id   Int      
   user      User     @relation(fields: [user_id], references: [id])
   name      String   @unique
+  category_id Int
+  category  Categories?  @relation(fields: [category_id], references: [id])
   tasks     Tasks[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -49,6 +57,7 @@ model Categories {
   id        Int      @id @default(autoincrement())
   name      String   @unique
   tasks     Tasks[]
+  lists     Lists[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -56,13 +65,14 @@ model Categories {
 model Tasks {
   id          Int         @id @default(autoincrement())
   list_id     Int
-  list        Lists       @relation(fields: [list_id], references: [id])
-  category_id Int?
+  list        Lists?       @relation(fields: [list_id], references: [id])
+  category_id Int
   category    Categories? @relation(fields: [category_id], references: [id])
   title       String      @unique
   description String
   due_date    DateTime
   priority    Priority    @default(LOW)
+  completed   Completed   @default(NO)
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
 }

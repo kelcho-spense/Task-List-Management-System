@@ -1,26 +1,81 @@
 import { Injectable } from '@nestjs/common';
-import { CreateListDto } from './dto/create-list.dto';
-import { UpdateListDto } from './dto/update-list.dto';
+import { CreateListDto, UpdateListDto } from './dto/list.dto';
+import { DatabaseService } from 'src/database/database.service';
+import { Lists } from '@prisma/client';
 
 @Injectable()
 export class ListsService {
-  create(createListDto: CreateListDto) {
-    return 'This action adds a new list';
+  constructor(private readonly databaseService: DatabaseService) {}
+
+  async create(createListData: CreateListDto): Promise<Lists> {
+    return this.databaseService.lists.create({
+      data: createListData,
+    });
   }
 
-  findAll() {
-    return `This action returns all lists`;
+  async findAll(limit?: number): Promise<Lists[]> {
+    if (limit) {
+      return this.databaseService.lists.findMany({
+        take: limit,
+        include: {
+          user: {
+            select: {
+              username: true,
+              email: true,
+            },
+          },
+          tasks: {
+            select: {
+              id: true,
+              category: {
+                select: {
+                  name: true,
+                },
+              },
+              title: true,
+              description: true,
+              priority: true,
+              completed: true,
+            },
+          },
+        },
+      });
+    }
+    return this.databaseService.lists.findMany({
+      include: {
+        user: {
+          select: {
+            username: true,
+            email: true,
+          },
+        },
+      },
+    });
+  }
+  async findOne(id: number): Promise<Lists> {
+    return this.databaseService.lists.findUnique({
+      where: { id },
+      include: {
+        user: {
+          select: {
+            username: true,
+            email: true,
+          },
+        },
+      },
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} list`;
+  async update(id: number, updateListData: UpdateListDto): Promise<Lists> {
+    return this.databaseService.lists.update({
+      where: { id },
+      data: updateListData,
+    });
   }
 
-  update(id: number, updateListDto: UpdateListDto) {
-    return `This action updates a #${id} list`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} list`;
+  async remove(id: number): Promise<Lists> {
+    return this.databaseService.lists.delete({
+      where: { id },
+    });
   }
 }
