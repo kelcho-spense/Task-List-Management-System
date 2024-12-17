@@ -1,0 +1,104 @@
+12/13/24, 11:02 AM - IP: unknown - InstanceLoader 	DatabaseModule dependencies initialized
+12/13/24, 11:02 AM - IP: unknown - InstanceLoader 	ThrottlerModule dependencies initialized
+12/13/24, 11:02 AM - IP: unknown - InstanceLoader 	MyLoggerModule dependencies initialized
+12/13/24, 11:02 AM - IP: unknown - InstanceLoader 	ConfigHostModule dependencies initialized
+12/13/24, 11:02 AM - IP: unknown - InstanceLoader 	TasksModule dependencies initialized
+12/13/24, 11:02 AM - IP: unknown - InstanceLoader 	ConfigModule dependencies initialized
+12/13/24, 11:02 AM - IP: unknown - InstanceLoader 	UsersModule dependencies initialized
+12/13/24, 11:02 AM - IP: unknown - InstanceLoader 	AppModule dependencies initialized
+12/13/24, 11:02 AM - IP: unknown - InstanceLoader 	EmployeesModule dependencies initialized
+12/13/24, 11:02 AM - IP: unknown - RouterExplorer 	Mapped {/api/v1/users, GET} route
+12/13/24, 11:02 AM - IP: unknown - RouterExplorer 	Mapped {/api/v1/users/:id, GET} route
+12/13/24, 11:02 AM - IP: unknown - RouterExplorer 	Mapped {/api/v1/users, POST} route
+12/13/24, 11:02 AM - IP: unknown - RouterExplorer 	Mapped {/api/v1/users/:id, PATCH} route
+12/13/24, 11:02 AM - IP: unknown - RouterExplorer 	Mapped {/api/v1/users/:id, DELETE} route
+12/13/24, 11:02 AM - IP: unknown - RoutesResolver 	TasksController {/api/v1/tasks}:
+12/13/24, 11:02 AM - IP: unknown - RouterExplorer 	Mapped {/api/v1/tasks, POST} route
+12/13/24, 11:02 AM - IP: unknown - RouterExplorer 	Mapped {/api/v1/tasks, GET} route
+12/13/24, 11:02 AM - IP: unknown - RouterExplorer 	Mapped {/api/v1/tasks/:id, GET} route
+12/13/24, 11:02 AM - IP: unknown - RouterExplorer 	Mapped {/api/v1/tasks/:id, PATCH} route
+12/13/24, 11:02 AM - IP: unknown - RouterExplorer 	Mapped {/api/v1/tasks/:id, DELETE} route
+12/13/24, 11:02 AM - IP: unknown - RoutesResolver 	EmployeesController {/api/v1/employees}:
+12/13/24, 11:02 AM - IP: unknown - RouterExplorer 	Mapped {/api/v1/employees, POST} route
+12/13/24, 11:02 AM - IP: unknown - RouterExplorer 	Mapped {/api/v1/employees, GET} route
+12/13/24, 11:02 AM - IP: unknown - RouterExplorer 	Mapped {/api/v1/employees/:id, GET} route
+12/13/24, 11:02 AM - IP: unknown - RouterExplorer 	Mapped {/api/v1/employees/:id, PATCH} route
+12/13/24, 11:02 AM - IP: unknown - RouterExplorer 	Mapped {/api/v1/employees/:id, DELETE} route
+12/13/24, 11:02 AM - IP: unknown - NestApplication 	Nest application successfully started
+12/13/24, 11:02 AM - IP: unknown - NestFactory 	Starting Nest application...
+12/13/24, 11:02 AM - IP: unknown - RoutesResolver 	AppController {/api/v1}:
+12/13/24, 11:02 AM - IP: unknown - RouterExplorer 	Mapped {/api/v1, GET} route
+12/13/24, 11:02 AM - IP: unknown - RoutesResolver 	UsersController {/api/v1/users}:
+12/13/24, 11:14 AM - IP: ::1 - EmployeesController 	Fetching all employees
+12/13/24, 11:14 AM - IP: ::ffff:127.0.0.1 - EmployeesController 	Fetching all employees
+12/13/24, 8:21 PM - IP: ::1 - EmployeesController 	Fetching all employees
+12/13/24, 9:31 PM - IP: ::1 - EmployeesController 	Fetching all employees
+12/13/24, 9:31 PM - IP: ::1 - EmployeesController 	Fetching all employees
+12/13/24, 9:31 PM - IP: ::1 - EmployeesController 	Fetching all employees
+12/13/24, 9:32 PM - IP: ::ffff:127.0.0.1 - EmployeesController 	Fetching all employees
+12/13/24, 9:33 PM - IP: unknown - AllExceptionsFilter 	{"message":"User not found","error":"Not Found","statusCode":404}
+12/13/24, 9:34 PM - IP: ::ffff:127.0.0.1 - EmployeesController 	Fetching all employees
+12/13/24, 9:35 PM - IP: ::1 - EmployeesController 	Fetching all employees
+12/13/24, 9:35 PM - IP: ::1 - EmployeesController 	Fetching all employees
+12/13/24, 9:36 PM - IP: ::1 - EmployeesController 	Fetching all employees
+12/13/24, 9:38 PM - IP: ::1 - EmployeesController 	Fetching all employees
+12/13/24, 9:38 PM - IP: ::1 - EmployeesController 	Fetching all employees
+12/13/24, 9:38 PM - IP: ::1 - EmployeesController 	Fetching all employees
+12/13/24, 9:38 PM - IP: ::1 - EmployeesController 	Fetching all employees
+12/13/24, 9:39 PM - IP: ::1 - EmployeesController 	Fetching all employees
+12/13/24, 9:39 PM - IP: ::ffff:127.0.0.1 - EmployeesController 	Fetching all employees
+12/13/24, 9:39 PM - IP: ::ffff:127.0.0.1 - EmployeesController 	Fetching all employees
+12/13/24, 9:40 PM - IP: ::1 - EmployeesController 	Fetching all employees
+12/13/24, 9:40 PM - IP: ::1 - EmployeesController 	Fetching all employees
+12/16/24, 11:35 AM - IP: ::ffff:127.0.0.1 - EmployeesController 	Fetching all employees
+12/16/24, 11:35 AM - IP: ::ffff:127.0.0.1 - EmployeesController 	Fetching all employees
+12/16/24, 11:35 AM - IP: ::ffff:127.0.0.1 - EmployeesController 	Fetching all employees
+12/16/24, 11:35 AM - IP: unknown - AllExceptionsFilter 	Internal Server Error
+12/16/24, 11:38 AM - IP: unknown - AllExceptionsFilter 	 Invalid `this.databaseService.employee.create()` invocation in E:\PersonalProjects\nestjs\Task-list-MS\src\employees\employees.service.ts:10:42     7 constructor(private readonly databaseService: DatabaseService) {}    8     9 async create(createEmployeeDto: Prisma.EmployeeCreateInput) { → 10   return this.databaseService.employee.create({          data: {            name: "chris doe",            email: "chris@gmail.com",            role: "ENGINE"                  ~~~~~~~~          }        })  Invalid value for argument `role`. Expected Role.
+12/16/24, 11:46 AM - IP: unknown - [AllExceptionsFilter]  Invalid `this.databaseService.employee.create()` invocation in E:\PersonalProjects\nestjs\Task-list-MS\src\employees\employees.service.ts:10:42     7 constructor(private readonly databaseService: DatabaseService) {}    8     9 async create(createEmployeeDto: Prisma.EmployeeCreateInput) { → 10   return this.databaseService.employee.create({          data: {            name: "chris doe",            email: "chris@gmail.com",            role: "ENGINE"                  ~~~~~~~~          }        })  Invalid value for argument `role`. Expected Role.
+12/16/24, 11:48 AM - IP: unknown - [AllExceptionsFilter]  Invalid `this.databaseService.employee.create()` invocation in E:\PersonalProjects\nestjs\Task-list-MS\src\employees\employees.service.ts:10:42     7 constructor(private readonly databaseService: DatabaseService) {}    8     9 async create(createEmployeeDto: Prisma.EmployeeCreateInput) { → 10   return this.databaseService.employee.create({          data: {            name: "chris doe",            email: "chris@gmail.com",            role: "ENGINE"                  ~~~~~~~~          }        })  Invalid value for argument `role`. Expected Role.
+12/16/24, 11:51 AM - IP: unknown - [AllExceptionsFilter]  Invalid `this.databaseService.employee.create()` invocation in E:\PersonalProjects\nestjs\Task-list-MS\src\employees\employees.service.ts:10:42     7 constructor(private readonly databaseService: DatabaseService) {}    8     9 async create(createEmployeeDto: Prisma.EmployeeCreateInput) { → 10   return this.databaseService.employee.create({          data: {            name: "chris doe",            email: "chris@gmail.com",            role: "ENGINE"                  ~~~~~~~~          }        })  Invalid value for argument `role`. Expected Role.
+12/16/24, 11:51 AM - IP: unknown - [AllExceptionsFilter] Internal Server Error
+12/16/24, 11:54 AM - IP: unknown - [AllExceptionsFilter] Internal Server Error
+12/16/24, 11:55 AM - IP: unknown - [AllExceptionsFilter] Internal Server Error
+12/16/24, 12:01 PM - IP: unknown - [AllExceptionsFilter] 
+Invalid `this.databaseService.employee.create()` invocation in
+E:\PersonalProjects\nestjs\Task-list-MS\src\employees\employees.service.ts:10:42
+
+   7 constructor(private readonly databaseService: DatabaseService) {}
+   8 
+   9 async create(createEmployeeDto: Prisma.EmployeeCreateInput) {
+→ 10   return this.databaseService.employee.create(
+Unique constraint failed on the fields: (`email`)
+12/16/24, 12:03 PM - IP: unknown - [AllExceptionsFilter] 
+Invalid `this.databaseService.employee.create()` invocation in
+E:\PersonalProjects\nestjs\Task-list-MS\src\employees\employees.service.ts:10:42
+
+   7 constructor(private readonly databaseService: DatabaseService) {}
+   8 
+   9 async create(createEmployeeDto: Prisma.EmployeeCreateInput) {
+→ 10   return this.databaseService.employee.create(
+Unique constraint failed on the fields: (`email`)
+12/16/24, 12:03 PM - IP: unknown - [AllExceptionsFilter] 
+Invalid `this.databaseService.employee.create()` invocation in
+E:\PersonalProjects\nestjs\Task-list-MS\src\employees\employees.service.ts:10:42
+
+   7 constructor(private readonly databaseService: DatabaseService) {}
+   8 
+   9 async create(createEmployeeDto: Prisma.EmployeeCreateInput) {
+→ 10   return this.databaseService.employee.create(
+Unique constraint failed on the fields: (`email`)
+12/16/24, 12:07 PM - IP: unknown - [AllExceptionsFilter] {"message":["Invalid email format"],"error":"Bad Request","statusCode":400}
+12/16/24, 12:08 PM - IP: unknown - [AllExceptionsFilter] {"message":["Role must be either INTERN, ENGINEER or ADMIN"],"error":"Bad Request","statusCode":400}
+12/17/24, 3:42 PM - IP: unknown - [AllExceptionsFilter] {"message":["each value in tasks must be a number conforming to the specified constraints","tasks must be an array"],"error":"Bad Request","statusCode":400}
+12/17/24, 3:45 PM - IP: unknown - [AllExceptionsFilter] {"message":["each value in tasks must be a number conforming to the specified constraints","tasks must be an array"],"error":"Bad Request","statusCode":400}
+12/17/24, 3:46 PM - IP: unknown - [AllExceptionsFilter] {"message":["each value in tasks must be a number conforming to the specified constraints","tasks must be an array"],"error":"Bad Request","statusCode":400}
+12/17/24, 3:55 PM - IP: unknown - [AllExceptionsFilter] 
+Invalid `this.databaseService.categories.update()` invocation in
+E:\PersonalProjects\nestjs\Task-list-MS\src\categories\categories.service.ts:31:44
+
+  28 }
+  29 
+  30 async update(id: number, updateCategoryData: UpdateCategoryDto) {
+→ 31   return this.databaseService.categories.update(
+An operation failed because it depends on one or more records that were required but not found. Record to update not found.

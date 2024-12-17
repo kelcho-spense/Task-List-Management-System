@@ -1,10 +1,15 @@
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, HttpAdapterHost } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ConfigService } from '@nestjs/config';
 import helmet from 'helmet';
+import { AllExceptionsFilter } from './http-exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  const { httpAdapter } = app.get(HttpAdapterHost);
+
+  // Register the global exception filter
+  app.useGlobalFilters(new AllExceptionsFilter(httpAdapter));
 
   // versioning
   app.setGlobalPrefix('api/v1');

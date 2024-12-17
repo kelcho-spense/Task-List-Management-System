@@ -1,124 +1,163 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# Task List Management System
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Project Overview
+A comprehensive task management system built with NestJS and PostgreSQL that enables users to organize tasks in multiple lists with categorization and priority management capabilities.
 
-## Project setup
+## Features
+- 👤 User authentication and authorization (Admin/Normal roles)
+- 📋 Multiple task lists per user
+- 🏷️ Task categorization
+- ⭐ Priority levels (Low, Medium, High)
+- 📅 Due date management
+- ⚡ Real-time updates
+- 🔍 Advanced task filtering
+- 📊 Activity tracking
 
+## Tech Stack
+- NestJS
+- PostgreSQL
+- Prisma ORM
+- TypeScript
+- JWT Authentication
+
+## Prerequisites
+- Node.js (v20 or higher)
+- PostgreSQL (v16 or higher)
+- npm or pnpm
+
+## Getting Started
+
+### 1. Clone the Repository
 ```bash
-$ pnpm install
+git clone https://github.com/kelcho-spense/Task-List-Management-System.git
+cd Task-List-Management-System
 ```
 
-## Compile and run the project
-
+### 2. Install Dependencies
 ```bash
-# development
-$ pnpm run start
-
-# watch mode
-$ pnpm run start:dev
-
-# production mode
-$ pnpm run start:prod
+npm install
 ```
 
-## Run tests
-
+### 3. Environment Setup
 ```bash
-# unit tests
-$ pnpm run test
+# Copy example env file
+cp .env.example .env
 
-# e2e tests
-$ pnpm run test:e2e
-
-# test coverage
-$ pnpm run test:cov
+# Update .env with your database credentials
+DATABASE_URL="postgresql://username:password@localhost:5432/tasklist_db"
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
+### 4. Database Setup
 ```bash
-$ pnpm install -g mau
-$ mau deploy
+# Generate Prisma client
+npx prisma generate
+
+# Run migrations
+npx prisma migrate deploy
+
+# (Optional) Seed the database
+npx prisma db seed
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 5. Start the Application
+```bash
+# Development
+npm run start:dev
 
-## Resources
+# Production
+npm run build
+npm run start:prod
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+## API Documentation
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### Base URL
+```
+http://localhost:8000/api/v1
+```
 
-## Support
+### Authentication
+All endpoints except registration and login require JWT authentication.
+Include the token in the Authorization header:
+```
+Authorization: Bearer <your_jwt_token>
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Available Endpoints
+Detailed API documentation can be found in `app.http`
 
-## Stay in touch
+#### Users
+- POST /users - Create user
+- GET /users - List users
+- GET /users/:id - Get user details
+- PATCH /users/:id - Update user
+- DELETE /users/:id - Delete user
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+#### Lists
+- POST /lists - Create list
+- GET /lists - Get all lists
+- GET /lists/:id - Get list details
+- PATCH /lists/:id - Update list
+- DELETE /lists/:id - Delete list
+
+#### Tasks
+- POST /tasks - Create task
+- GET /tasks - List tasks
+- GET /tasks/:id - Get task details
+- PATCH /tasks/:id - Update task
+- DELETE /tasks/:id - Delete task
+
+#### Categories
+- POST /categories - Create category
+- GET /categories - List categories
+- GET /categories/:id - Get category details
+- PATCH /categories/:id - Update category
+- DELETE /categories/:id - Delete category
+
+## Database Schema
+For detailed database design documentation, see [Database Design](./prisma/Database.design.md)
+
+## Development
+
+### Running Tests
+```bash
+# Unit tests
+npm run test
+
+# E2E tests
+npm run test:e2e
+
+# Test coverage
+npm run test:cov
+```
+
+### Making Schema Changes
+1. Modify `schema.prisma`
+2. Create migration:
+```bash
+npx prisma migrate dev --name describe_your_changes
+```
+
+### Code Style
+- Follow NestJS best practices
+- Use TypeScript strict mode
+- Maintain consistent naming conventions
+- Write unit tests for new features
+
+## Contributing
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
 ## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
-
-### Cheat Sheet commands
-
-- Create a resource ie User CRUD: `nest g resource <resource-name>` (ali
-
-- Create a new module: `nest g module <module-name>`
-- Create a new controller: `nest g controller <controller-name>`
-- Create a new service: `nest g service <service-name>`
-- Create a new provider: `nest g provider <provider-name>`
-- Create a new decorator: `nest g decorator <decorator-name>`
-- Create a new filter: `nest g filter <filter-name>`
-- Create a new gateway: `nest g gateway <gateway-name>`
-- Create a new guard: `nest g guard <guard-name>`
-- Create a new interceptor: `nest g interceptor <interceptor-name>`
-- Create a new middleware: `nest g middleware <middleware-name>`
-- Create a new pipe: `nest g pipe <pipe-name>`
-
-### set up prisma
-- `pnpm add -D prisma @prisma/client`   // install prisma
-- `npx prisma init`  // create prisma folder
-- `npx prisma generate`  // generate prisma client
-- `npx prisma migrate dev --name <migration name>`  // create migration
-- `npx prisma studio`  // open prisma studio
-- `npx prisma db push `  // push migration to database
+## Support
+For support, email support@tasklistms.com or create an issue in the repository.
 

@@ -1,44 +1,131 @@
-### GET /api/healthcheck
-GET http://localhost:8000/
-###
-GET http://localhost:8000/employees
-###
-DELETE http://localhost:8000/users/"20"
-###
-POST http://localhost:8000/users
+### Health Check
+GET http://localhost:3000/api/v1/health
+
+### Users CRUD Operations ###
+
+### Create User
+POST http://localhost:3000/api/v1/users
 Content-Type: application/json
 
 {
-  "id" : 23,
-  "name": "",
-  "email": "kevin.com",
-  "role": "INTERN"
+  "username": "johndoe",
+  "email": "john@example.com",
+  "password": "secretpass123",
+  "role": "NORMAL"
 }
 
-###
-PATCH http://localhost:8000/users/20
+### Get All Users
+GET http://localhost:3000/api/v1/users
+
+### Get User by ID
+GET http://localhost:3000/api/v1/users/1
+
+### Update User
+PATCH http://localhost:3000/api/v1/users/1
 Content-Type: application/json
 
 {
-  "name": "kelcho",
-  "email": "kelcho@gmail.com",
-  "role": "Admin"
+  "username": "johnupdated",
+  "email": "john.updated@example.com"
 }
 
-###
-GET http://localhost:8000/users/1000
-###
+### Delete User
+DELETE http://localhost:3000/api/v1/users/1
 
-###
-GET http://localhost:8000/users?role=kevin&limit=2
+### Lists CRUD Operations ###
 
-
-###
-POST http://localhost:8000/employees
+### Create List
+POST http://localhost:3000/api/v1/lists
 Content-Type: application/json
 
 {
-  "name": "Jane comba",
-  "email": ".com",
-  "role": "INTERN"
+  "user_id": 1,
+  "name": "Shopping List"
 }
+
+### Get All Lists
+GET http://localhost:3000/api/v1/lists
+
+### Get List by ID
+GET http://localhost:3000/api/v1/lists/1
+
+### Update List
+PATCH http://localhost:3000/api/v1/lists/1
+Content-Type: application/json
+
+{
+  "name": "Updated Shopping List"
+}
+
+### Delete List
+DELETE http://localhost:3000/api/v1/lists/1
+
+### Categories CRUD Operations ###
+
+### Create Category
+POST http://localhost:8000/api/v1/categories
+Content-Type: application/json
+
+{
+  "name": "Work"
+}
+
+### Get All Categories
+GET http://localhost:8000/api/v1/categories
+
+### Get Category by ID
+GET http://localhost:8000/api/v1/categories/1
+
+### Update Category
+PATCH http://localhost:8000/api/v1/categories/1
+Content-Type: application/json
+
+{
+  "name": "Work"
+}
+
+### Delete Category
+DELETE http://localhost:8000/api/v1/categories/1
+
+### Tasks CRUD Operations ###
+
+### Create Task
+POST http://localhost:8000/api/v1/tasks
+Content-Type: application/json
+
+{
+  "list_id": 1,
+  "category_id": 1,
+  "title": "Buy groceries",
+  "description": "Get milk, eggs, and bread",
+  "due_date": "2024-03-20T10:00:00Z",
+  "priority": "MEDIUM"
+}
+
+### Get All Tasks
+GET http://localhost:8000/api/v1/tasks
+
+### Get Task by ID
+GET http://localhost:8000/api/v1/tasks/1
+
+### Update Task
+PATCH http://localhost:8000/api/v1/tasks/1
+Content-Type: application/json
+
+{
+  "title": "Buy more groceries",
+  "description": "Add cheese to the list",
+  "priority": "HIGH"
+}
+
+### Delete Task
+DELETE http://localhost:8000/api/v1/tasks/1
+
+### Filter Tasks
+GET http://localhost:8000/api/v1/tasks?priority=HIGH&category_id=1
+
+### Get Tasks by List
+GET http://localhost:8000/api/v1/lists/1/tasks
+
+### Get User's Lists
+GET http://localhost:8000/api/v1/users/1/lists
