@@ -68,7 +68,7 @@ model Tasks {
   list        Lists?       @relation(fields: [list_id], references: [id])
   category_id Int
   category    Categories? @relation(fields: [category_id], references: [id])
-  title       String      @unique
+  title       String     
   description String
   due_date    DateTime
   priority    Priority    @default(LOW)

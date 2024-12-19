@@ -9,6 +9,7 @@ import {
   Query,
   ParseIntPipe,
   ValidationPipe,
+  ParseEnumPipe,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto, UpdateUserDto } from './dto/user.dto';
@@ -20,8 +21,8 @@ export class UsersController {
 
   @Get() // GET /users or GET /users?limit=10&role=admin
   findAll(
-    @Query('role') role?: Role,
-    @Query('limit', ParseIntPipe) limit?: number,
+    @Query('role', new ParseEnumPipe(Role, { optional: true })) role?: Role,
+    @Query('limit', new ParseIntPipe({ optional: true })) limit?: number,
   ): Promise<User[]> {
     return this.usersService.findAll(role, limit);
   }

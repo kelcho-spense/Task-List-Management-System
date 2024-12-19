@@ -49,6 +49,20 @@ export class ListsService {
             email: true,
           },
         },
+        tasks: {
+          select: {
+            id: true,
+            category: {
+              select: {
+                name: true,
+              },
+            },
+            title: true,
+            description: true,
+            priority: true,
+            completed: true,
+          },
+        },
       },
     });
   }

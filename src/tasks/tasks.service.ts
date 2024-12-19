@@ -1,26 +1,69 @@
-import { Injectable } from '@nestjs/common';
-import { CreateTaskDto } from './dto/create-task.dto';
-import { UpdateTaskDto } from './dto/update-task.dto';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { CreateTaskDto, UpdateTaskDto } from './dto/task.dto';
+import { DatabaseService } from 'src/database/database.service';
+import { Tasks, Priority, Completed } from '@prisma/client';
 
 @Injectable()
 export class TasksService {
-  create(createTaskDto: CreateTaskDto) {
-    return 'This action adds a new task';
+  constructor(private readonly dataBaseService: DatabaseService) {}
+  async create(createTaskData: CreateTaskDto): Promise<Tasks> {
+    return this.dataBaseService.tasks.create({
+      data: createTaskData,
+    });
   }
 
-  findAll() {
-    return `This action returns all tasks`;
+  async findAll(
+    priority?: Priority,
+    completed?: Completed,
+    limit?: number,
+  ): Promise<Tasks[]> {
+    const where: Partial<{ priority: Priority; completed: Completed }> = {};
+    const options: { take?: number } = {};
+
+    if (priority) {
+      where.priority = priority;
+    }
+    if (completed) {
+      where.completed = completed;
+    }
+    if (limit) {
+      options.take = limit;
+    }
+
+    return this.dataBaseService.tasks.findMany({
+      where: Object.keys(where).length > 0 ? where : undefined,
+      ...options,
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} task`;
+  async findOne(id: number): Promise<Tasks> {
+    const task = await this.dataBaseService.tasks.findUnique({
+      where: { id },
+      include: {
+        category: {
+          select: { name: true },
+        },
+      },
+    });
+    console.log(task);
+    // INVESTIGATE THIS LINE
+    if (!task) {
+      throw new NotFoundException(`Task with id ${id} not found`);
+    }
+    // INVESTIGATE THIS LINE
+    return task;
   }
 
-  update(id: number, updateTaskDto: UpdateTaskDto) {
-    return `This action updates a #${id} task`;
+  async update(id: number, updateTaskData: UpdateTaskDto): Promise<Tasks> {
+    return this.dataBaseService.tasks.update({
+      where: { id },
+      data: updateTaskData,
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} task`;
+  async remove(id: number): Promise<Tasks> {
+    return this.dataBaseService.tasks.delete({
+      where: { id },
+    });
   }
 }

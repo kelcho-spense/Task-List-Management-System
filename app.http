@@ -8,10 +8,10 @@ POST http://localhost:8000/api/v1/users
 Content-Type: application/json
 
 {
-  "username": "Freshiadoe",
-  "email": "Freshia@example.com",
+  "username": "Kevindoe",
+  "email": "Kevin@example.com",
   "password_hash": "secretpass123",
-  "role": "ADMIN"
+  "role": "INTERN"
 }
 
 ### Get All Users
@@ -19,6 +19,12 @@ GET http://localhost:8000/api/v1/users
 
 ### Get User by ID
 GET http://localhost:8000/api/v1/users/1
+
+### Get User by ID
+GET http://localhost:8000/api/v1/users?role=ADMIN
+
+### Get User by ID
+GET http://localhost:8000/api/v1/users?role=ADMIN&limit=1
 
 ### Update User
 PATCH http://localhost:8000/api/v1/users/1
@@ -48,7 +54,7 @@ Content-Type: application/json
 GET http://localhost:8000/api/v1/lists
 
 ### Get List by ID
-GET http://localhost:8000/api/v1/lists/1
+GET http://localhost:8000/api/v1/lists/12222
 
 ### Update List
 PATCH http://localhost:8000/api/v1/lists/1
@@ -95,16 +101,25 @@ POST http://localhost:8000/api/v1/tasks
 Content-Type: application/json
 
 {
-  "list_id": 1,
-  "category_id": 1,
-  "title": "Buy groceries",
-  "description": "Get milk, eggs, and bread",
-  "due_date": "2024-03-20T10:00:00Z",
-  "priority": "MEDIUM"
+    "list_id": 2,
+    "category_id": 2,
+   "title": "Doctor's appointment",
+    "description": "Visit the doctor for annual checkup",
+    "due_date": "2024-02-10T08:30:00Z",
+    "priority": "HIGH",
+    "completed": "NO"
 }
 
 ### Get All Tasks
 GET http://localhost:8000/api/v1/tasks
+### Get All Tasks
+GET http://localhost:8000/api/v1/tasks?priority=HIGH
+
+### Get All Tasks
+GET http://localhost:8000/api/v1/tasks?priority=HIGH&limit=1
+
+### Get All Tasks
+GET http://localhost:8000/api/v1/tasks?priority=MEDIUM&completed=NO&limit=4
 
 ### Get Task by ID
 GET http://localhost:8000/api/v1/tasks/1

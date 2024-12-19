@@ -130,3 +130,58 @@ E:\PersonalProjects\nestjs\Task-list-MS\src\lists\lists.service.ts:11:39
   10 async create(createListData: CreateListDto): Promise<Lists> {
 → 11   return this.databaseService.lists.create(
 Foreign key constraint violated: `Lists_category_id_fkey (index)`
+12/17/24, 7:35 PM - IP: unknown - [AllExceptionsFilter] {"message":["Priority must be LOW, MEDIUM or HIGH","Completed must be YES or NO"],"error":"Bad Request","statusCode":400}
+12/17/24, 7:36 PM - IP: unknown - [AllExceptionsFilter] {"message":["Completed must be YES or NO"],"error":"Bad Request","statusCode":400}
+12/17/24, 7:36 PM - IP: unknown - [AllExceptionsFilter] 
+Invalid `this.dataBaseService.tasks.create()` invocation in
+E:\PersonalProjects\nestjs\Task-list-MS\src\tasks\tasks.service.ts:10:39
+
+   7 export class TasksService {
+   8   constructor(private readonly dataBaseService: DatabaseService) {}
+   9   async create(createTaskData: CreateTaskDto): Promise<Tasks> {
+→ 10     return this.dataBaseService.tasks.create(
+Foreign key constraint violated: `Tasks_list_id_fkey (index)`
+12/17/24, 7:39 PM - IP: unknown - [AllExceptionsFilter] 
+Invalid `this.dataBaseService.tasks.create()` invocation in
+E:\PersonalProjects\nestjs\Task-list-MS\src\tasks\tasks.service.ts:10:39
+
+   7 export class TasksService {
+   8   constructor(private readonly dataBaseService: DatabaseService) {}
+   9   async create(createTaskData: CreateTaskDto): Promise<Tasks> {
+→ 10     return this.dataBaseService.tasks.create(
+Foreign key constraint violated: `Tasks_list_id_fkey (index)`
+12/17/24, 7:40 PM - IP: unknown - [AllExceptionsFilter] {"message":"Unexpected non-whitespace character after JSON at position 221","error":"Bad Request","statusCode":400}
+12/17/24, 7:40 PM - IP: unknown - [AllExceptionsFilter] {"message":"Unexpected non-whitespace character after JSON at position 219","error":"Bad Request","statusCode":400}
+12/17/24, 7:40 PM - IP: unknown - [AllExceptionsFilter] {"message":"Unexpected non-whitespace character after JSON at position 217","error":"Bad Request","statusCode":400}
+12/17/24, 7:41 PM - IP: unknown - [AllExceptionsFilter] 
+Invalid `this.dataBaseService.tasks.create()` invocation in
+E:\PersonalProjects\nestjs\Task-list-MS\src\tasks\tasks.service.ts:10:39
+
+   7 export class TasksService {
+   8   constructor(private readonly dataBaseService: DatabaseService) {}
+   9   async create(createTaskData: CreateTaskDto): Promise<Tasks> {
+→ 10     return this.dataBaseService.tasks.create(
+Unique constraint failed on the fields: (`title`)
+12/17/24, 8:04 PM - IP: unknown - [AllExceptionsFilter]  Invalid `this.dataBaseService.tasks.findMany()` invocation in E:\PersonalProjects\nestjs\Task-list-MS\src\tasks\tasks.service.ts:33:39    30   options.take = limit;   31 }   32  → 33 return this.dataBaseService.tasks.findMany({        where: {          priority: "HIGH"        },        take: "1"              ~~~      })  Argument `take`: Invalid value provided. Expected Int, provided String.
+12/17/24, 8:10 PM - IP: unknown - [AllExceptionsFilter]  Invalid `this.dataBaseService.tasks.findMany()` invocation in E:\PersonalProjects\nestjs\Task-list-MS\src\tasks\tasks.service.ts:33:39    30   options.take = limit;   31 }   32  → 33 return this.dataBaseService.tasks.findMany({        where: {          priority: "HIGH"        },        take: "1"              ~~~      })  Argument `take`: Invalid value provided. Expected Int, provided String.
+12/17/24, 8:13 PM - IP: unknown - [AllExceptionsFilter]  Invalid `this.dataBaseService.tasks.findMany()` invocation in E:\PersonalProjects\nestjs\Task-list-MS\src\tasks\tasks.service.ts:40:39    37   return this.dataBaseService.tasks.findMany({ where });   38 }   39  → 40 return this.dataBaseService.tasks.findMany({        where: {          priority: "HIGH"        },        take: "1"              ~~~      })  Argument `take`: Invalid value provided. Expected Int, provided String.
+12/17/24, 8:13 PM - IP: unknown - [AllExceptionsFilter]  Invalid `this.dataBaseService.tasks.findMany()` invocation in E:\PersonalProjects\nestjs\Task-list-MS\src\tasks\tasks.service.ts:40:39    37   return this.dataBaseService.tasks.findMany({ where });   38 }   39  → 40 return this.dataBaseService.tasks.findMany({        where: {          priority: "MEDIUM",          completed: "NO"        },        take: "1"              ~~~      })  Argument `take`: Invalid value provided. Expected Int, provided String.
+12/18/24, 8:02 PM - IP: unknown - [AllExceptionsFilter] {"message":"Validation failed (numeric string is expected)","error":"Bad Request","statusCode":400}
+12/18/24, 8:04 PM - IP: unknown - [AllExceptionsFilter] {"message":"Validation failed (numeric string is expected)","error":"Bad Request","statusCode":400}
+12/18/24, 8:04 PM - IP: unknown - [AllExceptionsFilter] 
+Invalid `this.databaseService.user.create()` invocation in
+E:\PersonalProjects\nestjs\Task-list-MS\src\users\users.service.ts:35:38
+
+  32 }
+  33 
+  34 async create(createUserData: CreateUserDto): Promise<User> {
+→ 35   return this.databaseService.user.create(
+Unique constraint failed on the fields: (`email`)
+12/18/24, 8:05 PM - IP: unknown - [AllExceptionsFilter] {"message":"Validation failed (numeric string is expected)","error":"Bad Request","statusCode":400}
+12/18/24, 8:06 PM - IP: unknown - [AllExceptionsFilter] {"message":"Validation failed (numeric string is expected)","error":"Bad Request","statusCode":400}
+12/18/24, 8:07 PM - IP: unknown - [AllExceptionsFilter] {"message":"Validation failed (numeric string is expected)","error":"Bad Request","statusCode":400}
+12/18/24, 8:09 PM - IP: unknown - [AllExceptionsFilter] {"message":"Validation failed (numeric string is expected)","error":"Bad Request","statusCode":400}
+12/18/24, 8:12 PM - IP: unknown - [AllExceptionsFilter] {"message":"Validation failed (numeric string is expected)","error":"Bad Request","statusCode":400}
+12/18/24, 8:15 PM - IP: unknown - [AllExceptionsFilter] {"message":"Validation failed (numeric string is expected)","error":"Bad Request","statusCode":400}
+12/18/24, 8:15 PM - IP: unknown - [AllExceptionsFilter] {"message":"Validation failed (numeric string is expected)","error":"Bad Request","statusCode":400}
+12/18/24, 8:15 PM - IP: unknown - [AllExceptionsFilter] {"message":"Validation failed (numeric string is expected)","error":"Bad Request","statusCode":400}

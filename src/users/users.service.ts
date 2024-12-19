@@ -8,21 +8,13 @@ export class UsersService {
   constructor(private readonly databaseService: DatabaseService) {}
 
   async findAll(role?: Role, limit?: number): Promise<User[]> {
-    if (role && limit) {
-      return this.databaseService.user.findMany({
-        where: { role },
-        take: limit,
-      });
-    } else if (role) {
-      return this.databaseService.user.findMany({
-        where: { role },
-      });
-    } else if (limit) {
-      return this.databaseService.user.findMany({
-        take: limit,
-      });
-    }
-    return this.databaseService.user.findMany();
+    const where = role ? { role } : {};
+    const take = limit ? limit : undefined;
+
+    return this.databaseService.user.findMany({
+      where,
+      ...(take ? { take } : {}),
+    });
   }
 
   async findOne(id: number): Promise<User> {
